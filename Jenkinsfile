@@ -24,11 +24,11 @@ pipeline {
             }
         }
         stage("SonarQube Testing and Scan") {
-            steps {
-                script {
-                    gv.sonarScan("${SONARQUBE_SERVER_IP}","${SONARQUBE_SERVER_USER}")
-                }
+            environment {
+                CI = 'true'
+                scannerHome = tool 'sonarqube'
             }
+            agent{ docker { image 'openjdk'}  }
         }
         stage("Push JAR to Nexus"){
             steps {
