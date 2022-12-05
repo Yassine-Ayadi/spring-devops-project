@@ -13,7 +13,7 @@ def pushToNexus() {
     sh 'mvn clean deploy -Dmaven.test.skip=true'
 }
 
-def sonarScan {
+def sonarScan() {
         echo "Running sonarQube scan..."
         withSonarQubeEnv('sonarqube') {
             sh "${scannerHome}/bin/sonar-scanner"
