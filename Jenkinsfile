@@ -29,6 +29,10 @@ pipeline {
                 scannerHome = tool 'sonarqube'
             }
             agent{ docker { image 'openjdk'}  }
+              steps {
+                script {
+                    gv.sonarScan()
+                }
         }
         stage("Push JAR to Nexus"){
             steps {
