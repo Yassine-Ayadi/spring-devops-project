@@ -7,10 +7,10 @@ pipeline {
     environment {
         DEPLOYMENT_SERVER_IP = "192.168.122.101"
         DEPLOYMENT_SERVER_USER= "sofiene"
-        SONARQUBE_SERVER_IP ="192.168.122.144"
-        SONARQUBE_SERVER_USER="sofiene"
-        JENKINS_SERVER_IP ="192.168.122.251"
-        JENKINS_SERVER_USER="sofiene"
+        SONARQUBE_SERVER_IP ="137.117.179.6"
+        SONARQUBE_SERVER_USER="sonarqube"
+        JENKINS_SERVER_IP ="20.23.253.136"
+        JENKINS_SERVER_USER="jenkins"
     }
     tools {
         maven 'maven'
