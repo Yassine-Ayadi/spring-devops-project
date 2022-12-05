@@ -15,7 +15,7 @@ def pushToNexus() {
 
 def sonarScan(String serverIp, String serverUser) {
         echo "Running sonarQube scan..."
-        withSonarQubeEnv('sonarqube') {
+        withSonarQubeEnv('sonarqubeserver') {
             sh "${scannerHome}/bin/sonar-scanner"
         }
         timeout(time: 10, unit: 'MINUTES') {
