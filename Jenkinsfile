@@ -33,6 +33,7 @@ pipeline {
                 script {
                     gv.sonarScan()
                 }
+              }
         }
         stage("Push JAR to Nexus"){
             steps {
