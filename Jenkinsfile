@@ -31,8 +31,8 @@ pipeline {
             agent{ docker { image 'openjdk'}  }
               steps {
                 script {
-                    sh 'java -version'
-                    sh 'mvn -version'
+                    bash 'java -version'
+                    bash 'mvn --version'
                     gv.sonarScan()
                 }
               }
