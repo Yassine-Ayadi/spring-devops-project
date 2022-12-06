@@ -13,7 +13,7 @@ pipeline {
         JENKINS_SERVER_USER="jenkins"
     }
     tools {
-        maven 'maven'
+        maven 'Maven'
     }
     stages {
         stage("init") {
