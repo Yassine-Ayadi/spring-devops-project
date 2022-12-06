@@ -18,7 +18,7 @@ def sonarScan() {
         echo "Running sonarQube scan..."
         withSonarQubeEnv('sonarqube') {
            // sh "${scannerHome}/bin/sonar-scanner"
-              sh "mvn clean verify sonar:sonar -Dsonar.projectKey=sonarqube"
+              sh "mvn clean verify sonar:sonar -Dsonar.projectKey=sonarqube -Dmaven.test.skip=true"
         }
         timeout(time: 10, unit: 'MINUTES') {
             waitForQualityGate abortPipeline: true
