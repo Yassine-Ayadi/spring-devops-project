@@ -32,7 +32,7 @@ pipeline {
               steps {
                 script {
                     sh 'java -version'
-                    bash 'mvn --version'
+                    bash 'sudo mvn --version'
                     gv.sonarScan()
                 }
               }
