@@ -17,7 +17,8 @@ nexusArtifactUploader artifacts: [[artifactId: 'devops-project', classifier: '',
 def sonarScan() {
         echo "Running sonarQube scan..."
         withSonarQubeEnv('sonarqube') {
-            sh "${scannerHome}/bin/sonar-scanner"
+           // sh "${scannerHome}/bin/sonar-scanner"
+              sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=sonarqube"
         }
         timeout(time: 10, unit: 'MINUTES') {
             waitForQualityGate abortPipeline: true
