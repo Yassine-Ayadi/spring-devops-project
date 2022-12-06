@@ -12,9 +12,9 @@ pipeline {
         JENKINS_SERVER_IP ="20.23.253.136"
         JENKINS_SERVER_USER="jenkins"
     }
-    /* tools {
+    tools {
         maven 'Maven'
-    } */ 
+    } 
     stages {
         stage("init") {
             steps {
