@@ -11,6 +11,7 @@ def buildImage() {
 def pushToNexus() {
     echo "pushing the jar file to Nexus maven-snapshots repo..."
     /* sh 'mvn clean deploy -Dmaven.test.skip=true' */
+    sh 'mvn clean install'
     nexusArtifactUploader artifacts: [
         [
             artifactId: 'devops-project', 
