@@ -24,7 +24,7 @@ def pushToNexus() {
         nexusUrl: '20.13.123.42', 
         nexusVersion: 'nexus3', 
         protocol: 'http', 
-        repository: 'http://20.13.123.42:8081/repository/devopsproject/', 
+        repository: 'http://20.13.123.42:8081/repository/maven-snapshots/', 
         version: '0.0.1-SNAPSHOT'
 }
 
