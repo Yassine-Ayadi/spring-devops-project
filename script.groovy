@@ -15,7 +15,6 @@ def pushToNexus() {
 
 def sonarScan() {
         echo "Running sonarQube scan..."
-        sh 'mvn clean install'
         withSonarQubeEnv('sonarqube') {
             sh "${scannerHome}/bin/sonar-scanner"
         }
