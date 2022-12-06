@@ -28,7 +28,7 @@ pipeline {
                 CI = 'true'
                 scannerHome = tool 'sonarqube'
             }
-            agent{ docker { image 'openjdk'}  }
+            agent{ docker { image 'maven'}  }
               steps {
                 script {
                     sh 'java -version'
