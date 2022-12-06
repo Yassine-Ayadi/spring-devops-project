@@ -10,23 +10,10 @@ def buildImage() {
 
 def pushToNexus() {
     echo "pushing the jar file to Nexus maven-snapshots repo..."
-    /* sh 'mvn clean deploy -Dmaven.test.skip=true' */
-    sh 'mvn clean install'
-    nexusArtifactUploader artifacts: [
-        [
-            artifactId: 'devops-project', 
-            classifier: '', 
-            file: 'target/devops-project-0.0.1-SNAPSHOT.jar', 
-            type: 'jar'
-        ]
-    ], 
-        credentialsId: 'nexus-credentials', 
-        groupId: 'org.springframework.boot', 
-        nexusUrl: '20.13.123.42', 
-        nexusVersion: 'nexus3', 
-        protocol: 'http', 
-        repository: 'http://20.13.123.42:8081/repository/maven-snapshots/', 
-        version: '0.0.1-SNAPSHOT'
+
+    withCredentials([usernamePassword(credentialsId: 'nexus-credentials', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+        sh 'mvn clean deploy -Dmaven.test.skip=true'
+    }    
 }
 
 def sonarScan() {
